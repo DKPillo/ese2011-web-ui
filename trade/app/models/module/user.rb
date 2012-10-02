@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'bcrypt'
+require 'require_relative'
+require_relative('item')
 
 module Models
 
@@ -56,7 +58,7 @@ module Models
 
     #let the user create a new item
     def create_item(name, price)
-      new_item = Trading::Item.created( name, price, self )
+      new_item = Models::Item.created( name, price, self )
       self.item_list.push(new_item)
       return new_item
     end
